@@ -1,45 +1,97 @@
-# The Garden of Things Never Said
+# 🌷 The Garden of Things Never Said
 
-A single-page, responsive anonymous thought garden. It uses HTML/CSS/JavaScript, Supabase Postgres for persistent storage, Supabase Realtime for live flower updates, and Vercel for hosting.
+### A digital garden where unspoken thoughts bloom into flowers.
 
-## 1. Create the Supabase database
+**The Garden of Things Never Said** is a single-page, responsive web application where people can anonymously express their thoughts and emotions. Each thought becomes part of a virtual garden, creating a space for emotional expression and connection.
 
-1. Visit https://supabase.com and create a project.
-2. Open **SQL Editor** in the project dashboard.
-3. Open `supabase/setup.sql`, copy all its SQL, paste it into the SQL Editor, and run it.
-4. If the final `alter publication` line says the table is already in the publication, that is fine. If it says permission denied, open **Database > Publications**, find `supabase_realtime`, and enable `flowers` there.
-5. In **Project Settings > API** (or **Connect**, depending on dashboard layout), copy the Project URL and the publishable key (older projects may label this the anon key). Never use a `service_role` or secret key in browser code.
+🌐 **Live Website:** https://garden-never-said.vercel.app/
 
-## 2. Connect the website to Supabase
+💻 **GitHub Repository:** https://github.com/deepthi-ii/garden-never-said
 
-1. Open `index.html` in a text editor.
-2. Find these two lines near the bottom:
-   `const SUPABASE_URL = 'YOUR_SUPABASE_URL';`
-   `const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY';`
-3. Replace the placeholders with your real Project URL and publishable/anon key. Keep the single quotes.
-4. Save the file. Before configuring it, the page runs in preview mode with sample flowers; preview submissions only exist in that browser session and are not shared.
+## ✨ Features
 
-## 3. Upload to GitHub (browser only)
+- 🌸 **Anonymous Thought Sharing** — Share thoughts without displaying your identity.
+- 🌷 **Emotion-Based Flowers** — Associate thoughts with different feelings.
+- 🌿 **Interactive Digital Garden** — Explore thoughts represented as flowers.
+- ☁️ **Persistent Storage** — Uses Supabase Postgres to store and retrieve thoughts.
+- 🔄 **Live Updates** — Uses Supabase Realtime to update the garden when new flowers are added.
+- 📱 **Responsive Design** — Designed to work across different screen sizes.
 
-1. Go to https://github.com and create a new repository, e.g. `garden-never-said`.
-2. Open the repository and choose **Add file > Upload files**.
-3. Extract this project ZIP on your computer first.
-4. Upload `index.html`, `README.md`, and the `supabase` folder (including `setup.sql`). If GitHub's folder picker is awkward, open the extracted folder and drag the files into the GitHub upload area; create `supabase` in GitHub and upload `setup.sql` into it if needed.
-5. Commit the files to the `main` branch.
+## 🛠️ Technologies Used
 
-## 4. Deploy on Vercel
+| Technology | Purpose |
+|---|---|
+| HTML5 | Structures the web page |
+| CSS3 | Styling, layout, and responsive design |
+| JavaScript | Interactive functionality and application logic |
+| Supabase | Database, backend services, and realtime updates |
+| PostgreSQL | Persistent data storage |
+| GitHub | Source code management |
+| Vercel | Website hosting and deployment |
 
-1. Visit https://vercel.com and sign in with GitHub.
-2. Choose **Add New > Project**, then import `garden-never-said`.
-3. This is a plain static HTML site. No build command is required. Leave the output directory blank/default; Vercel serves `index.html` from the project root.
-4. Click **Deploy**. When it finishes, open the generated `.vercel.app` URL.
-5. Test the URL on two different browsers/devices. Plant a flower on one and verify it appears on the other without refreshing.
-6. To update the site, edit `index.html`, commit the change to GitHub, and Vercel will redeploy automatically.
+## 🎯 Project Objective
 
-## Security and launch notes
+The objective is to create a digital space where people can express unspoken feelings anonymously, share their thoughts, and explore a community garden of emotions.
 
-- The browser publishable/anon key is designed to be public; RLS policies restrict this sample app to reading and inserting flowers only. Do not put a `service_role` or secret key in `index.html`.
-- This starter allows anonymous public submissions, so visitors can submit inappropriate content or spam. For a public launch, add moderation/reporting, rate limiting (typically with a server-side function or CAPTCHA), and a removal workflow. Don't collect identifying details; submitted thoughts are public to anyone who can access the site.
-- The sample uses a public read feed and a 100-flower display limit. For larger communities, add pagination and moderation.
-- If the page loads but live updates fail, check that the `flowers` table is included in the `supabase_realtime` publication and inspect the browser console.
-- This project cannot be live-connected to your Supabase project or deployed to your Vercel account until you create/connect those accounts and supply the project settings yourself.
+## 🚀 How to Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/deepthi-ii/garden-never-said.git
+   ```
+
+2. Open the downloaded project folder.
+3. Open `index.html` in a browser.
+4. Ensure the Supabase project, database table, and access policies are configured correctly for database features to work.
+
+**Note:** The website's database features require a valid Supabase configuration and an internet connection. If the database is unavailable, preview behavior may differ depending on the application's current code.
+
+## 🗄️ Supabase Setup
+
+If you are setting up your own instance:
+
+1. Create a project at [Supabase](https://supabase.com/).
+2. Open the SQL Editor.
+3. If the repository contains `supabase/setup.sql`, run its SQL instructions.
+4. Configure the project URL and publishable key in `index.html`.
+5. Enable the `flowers` table for Supabase Realtime if live updates are required.
+6. Verify the database access policies before accepting public submissions.
+
+Never expose a Supabase `service_role` key or secret key in browser-side code.
+
+## 🌐 Deployment
+
+This project is hosted on Vercel.
+
+1. Import the GitHub repository into [Vercel](https://vercel.com/).
+2. Configure the project as a static HTML website.
+3. Deploy the project.
+4. Commit future code changes to GitHub to trigger redeployment.
+
+## 🔐 Security and Limitations
+
+- Anonymous submissions may be visible to anyone who can access the public garden.
+- Public submission forms can be vulnerable to spam and inappropriate content.
+- A public launch should include moderation, reporting, rate limiting, and a content-removal process.
+- Database permissions should restrict users to the operations the application requires.
+- The current application may display a limited number of flowers; pagination can be added as the community grows.
+
+## 📚 Skills Practiced
+
+- Frontend web development
+- HTML, CSS, and JavaScript
+- Supabase database integration
+- Realtime application functionality
+- GitHub source code management
+- Vercel deployment
+- Debugging and troubleshooting
+- AI-assisted development
+
+## 👩‍💻 About the Project
+
+This project explores how technology can provide a creative space for emotional expression while combining frontend development, cloud database services, and website deployment.
+
+---
+
+*Every unspoken thought deserves a place to bloom. 🌷*
